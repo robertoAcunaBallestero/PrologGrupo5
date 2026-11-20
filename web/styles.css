@@ -1,0 +1,301 @@
+
+/* SISTEMA DE FACTURACION PROLOG */
+/* Universidad Fidelitas */
+
+:root {
+    --principal: #174a7e;
+    --secundario: #2469a4;
+    --fondo: #f2f5f9;
+    --blanco: #ffffff;
+    --texto: #263445;
+    --borde: #dce3eb;
+    --verde: #238453;
+    --rojo: #c0392b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    line-height: 1.5;
+}
+
+/* ENCABEZADO */
+
+header {
+    background: var(--principal);
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+header p {
+    margin-bottom: 0;
+}
+
+/* MENU */
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: white;
+    padding: 15px;
+    box-shadow: 0 2px 6px #00000012;
+}
+
+button {
+    background: var(--secundario);
+    color: white;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background: var(--principal);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* CONTENIDO */
+
+main {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+    min-height: 65vh;
+}
+
+section {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px #00000010;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+h2 {
+    color: var(--principal);
+    margin-top: 0;
+}
+
+h3 {
+    color: var(--texto);
+}
+
+/* FORMULARIOS */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    font-size: 15px;
+    background: white;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--secundario);
+    outline-offset: 1px;
+}
+
+/* PRODUCTOS DE LA FACTURA */
+
+#lineas {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.linea {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 15px;
+    background: #f7f9fc;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+}
+
+.linea select {
+    flex: 3;
+    min-width: 180px;
+}
+
+.linea input {
+    flex: 1;
+    min-width: 100px;
+}
+
+#agregar {
+    background: var(--verde);
+    align-self: flex-start;
+}
+
+#guardar {
+    background: var(--principal);
+    font-size: 16px;
+    padding: 14px;
+}
+
+#estimado {
+    color: var(--verde);
+    font-weight: bold;
+}
+
+/* TABLAS */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background: var(--principal);
+    color: white;
+    padding: 13px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid var(--borde);
+}
+
+tr:hover td {
+    background: #f3f7fc;
+}
+
+/* RESULTADOS Y REPORTES */
+
+#resultado,
+#detalleFactura,
+#estadisticas,
+#grafico,
+#tarifas {
+    margin-top: 20px;
+}
+
+#resultado:not(:empty),
+#detalleFactura:not(:empty) {
+    padding: 18px;
+    background: #f6f9fc;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+}
+
+#alerta {
+    font-weight: bold;
+    text-align: center;
+}
+
+.error {
+    color: var(--rojo);
+}
+
+.exito {
+    color: var(--verde);
+}
+
+.tarjeta {
+    padding: 20px;
+    background: #edf4fb;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.tarjeta h3 {
+    margin-top: 0;
+}
+
+.barra {
+    background: var(--secundario);
+    color: white;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+/* PIE DE PAGINA */
+
+footer {
+    background: var(--principal);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 35px;
+}
+
+/* DISPOSITIVOS PEQUENOS */
+
+@media (max-width: 768px) {
+    main {
+        margin-top: 15px;
+        padding: 0 10px;
+    }
+
+    section {
+        padding: 15px;
+        overflow-x: auto;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    nav button {
+        flex: 1 1 40%;
+    }
+
+    .linea {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .linea input,
+    .linea select {
+        width: 100%;
+        min-width: 0;
+    }
+
+    table {
+        min-width: 520px;
+    }
+}

@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema de Facturación Prolog</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Sistema de Facturación</h1>
+    <p>Proyecto Prolog - Universidad Fidélitas</p>
+</header>
+
+<nav>
+    <button onclick="mostrarSeccion('nueva')">
+        Nueva Factura
+    </button>
+
+    <button onclick="mostrarSeccion('productos')">
+        Productos
+    </button>
+
+    <button onclick="mostrarSeccion('historial')">
+        Historial
+    </button>
+
+    <button onclick="mostrarSeccion('reportes')">
+        Reportes
+    </button>
+</nav>
+
+<main>
+
+    <!-- NUEVA FACTURA -->
+    <section id="nueva">
+
+        <h2>Crear Nueva Factura</h2>
+
+        <form id="formFactura">
+
+            <label for="cliente">Cliente:</label>
+            <select id="cliente" required></select>
+
+            <label for="formaPago">
+                Forma de Pago:
+            </label>
+
+            <select id="formaPago">
+                <option value="contado">
+                    Contado
+                </option>
+                <option value="credito">
+                    Crédito
+                </option>
+            </select>
+
+            <h3>Productos</h3>
+
+            <div id="lineas"></div>
+
+            <button type="button" id="agregar">
+                Agregar Producto
+            </button>
+
+            <h3>
+                Subtotal estimado:
+                <span id="estimado">₡0</span>
+            </h3>
+
+            <button type="submit" id="guardar">
+                Crear y Emitir Factura
+            </button>
+
+        </form>
+
+        <div id="resultado"></div>
+
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section id="productos" hidden>
+
+        <h2>Catálogo de Productos</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                </tr>
+            </thead>
+
+            <tbody id="tablaProductos"></tbody>
+        </table>
+
+    </section>
+
+    <!-- HISTORIAL -->
+    <section id="historial" hidden>
+
+        <h2>Historial de Facturas</h2>
+
+        <label for="filtroEstado">Estado:</label>
+        <select id="filtroEstado">
+            <option value="">Todos</option>
+            <option value="emitida">Emitida</option>
+            <option value="rechazada">Rechazada</option>
+            <option value="pendiente">Pendiente</option>
+        </select>
+
+        <label for="filtroCliente">Cliente:</label>
+        <select id="filtroCliente">
+            <option value="">Todos</option>
+        </select>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Factura</th>
+                    <th>Cliente</th>
+                    <th>Estado</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+
+            <tbody id="tablaFacturas"></tbody>
+        </table>
+
+        <div id="detalleFactura"></div>
+
+    </section>
+
+    <!-- REPORTES -->
+    <section id="reportes" hidden>
+
+        <h2>Reportes de Ventas</h2>
+
+        <div id="estadisticas"></div>
+
+        <h3>Productos más vendidos</h3>
+        <div id="grafico"></div>
+
+        <h3>IVA por tarifa</h3>
+        <div id="tarifas"></div>
+
+    </section>
+
+    <p id="alerta" role="status"></p>
+
+</main>
+
+<footer>
+    <p>
+        Universidad Fidélitas -
+        Paradigmas de Programación
+    </p>
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+</html>
